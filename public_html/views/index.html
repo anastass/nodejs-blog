@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Blog</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style type="text/css">
-            #menu {
-                margin-top: 30px;
-                width: 300px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            #menu a {
-                color: green;
-            }
-            h2 {
-                font-size: 1.4em;
-                color: green;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Blog!</h1>
-        <hr />
+<h1>Blog!</h1>
 
-        {{#each entries}}
-            <h2>{{title}}</h2>
-            Published: {{published}}
-        {{/each}}
-        <div id="menu">
-            <a href="/">Home</a> - <a href="/about/">About Me</a> - <a href="/article/">Some Article</a>
-        </div>
-    </body>
-</html>
+{{#each entries}}
+    <p>
+        <a href="/article/{{id}}">{{title}}</a><br/>
+        Published: {{published}}
+    </p>
+{{/each}}

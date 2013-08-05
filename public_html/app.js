@@ -18,15 +18,16 @@ app.use(express.bodyParser());
 //});
 
 app.get('/', function(req, res) {
-    res.render('index', {title: "MyBlog", entries: blogEngine.getBlogEntries()});
+    res.render('index', {title: "My Blog", entries: blogEngine.getBlogEntries()});
 });
 
 app.get('/about', function(req, res) {
-    res.render('about');
+    res.render('about', {title: "About Me"});
 });
 
-app.get('/article', function(req, res) {
-    res.render('article');
+app.get('/article/:id', function(req, res) {
+    var entry = blogEngine.getBlogEntry(req.params.id);
+    res.render('article', {title: entry.title, blog: entry});
 });
 
 app.listen(3000);
